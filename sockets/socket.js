@@ -20,31 +20,9 @@ io.on('connection', client => {
         console.log('Cliente desconectado');
      });
 
-     client.on('mensaje', (payload) => {
+     /* client.on('mensaje', (payload) => {
          console.log('Mensaje!!!!', payload);
 
          io.emit('mensaje', {admin: 'Nuevo mensaje'});
-     })
-
-     /* client.on('emitir-mensaje', (payload) => {
-         //console.log(payload);
-         //io.emit('nuevo-mensaje', payload); // emite a todos!
-         client.broadcast.emit('nuevo-mensaje', payload); // emite a todos menos al que lo emitío
      }) */
-
-     client.on('vote-band', (payload) => {
-         bands.voteBands(payload.id);
-         io.emit('active-bands', bands.getBands());
-     })
-
-     client.on('add-band', (payload) => {
-         const newBand = new Band(payload.name);
-         bands.addBand(newBand);
-         io.emit('active-bands', bands.getBands());
-     })
-
-     client.on('delete-band', (payload) => {
-        bands.deleteBands(payload.id);
-        io.emit('active-bands', bands.getBands());
-    })
 });

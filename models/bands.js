@@ -28,6 +28,13 @@ class Bands {
             }
         })
     }
+
+    resetVotesBands() {
+        this.bands = this.bands.map(band => {
+            band.votes = 0;
+            return band;
+        })
+    }
 }
 
 module.exports = Bands;
